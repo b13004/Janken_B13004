@@ -1,18 +1,17 @@
 Board board;
 Game game;
-
-void setup(){
-  surface.setSize(450,300);
+void setup() {
+  surface.setSize(450, 300);
   board = new Board();
   game = new Game();
   background(0);
-
 }
 
-void draw(){
+void draw() {
   board.updateSelectArea();
   board.updateCommentArea("Choose Your Hand");
 }
+
 void mouseReleased() {
   if (mouseX>=0 && mouseX <= 150 && mouseY >=0 && mouseY <= 150) {
     board.updateResultArea(game.getJankenResult("Gu"));
