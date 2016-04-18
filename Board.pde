@@ -24,3 +24,4 @@ class Board {
     textAlign(CENTER);
     text(result, 225, 260);
   }
+}
