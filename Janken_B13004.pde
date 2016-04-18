@@ -1,21 +1,23 @@
-<<<<<<< HEAD
-void setup(){
-  surface.setSize(450,300);
-}
-
-void draw(){
-=======
 Board board;
-
-void setup(){
-  surface.setSize(450,300);
+Game game;
+void setup() {
+  surface.setSize(450, 300);
   board = new Board();
+  game = new Game();
   background(0);
-
 }
 
-void draw(){
+void draw() {
   board.updateSelectArea();
   board.updateCommentArea("Choose Your Hand");
->>>>>>> parent of b6bf663... 手アイコンにクリンク選択を実装しCPUとの勝敗チェック処理を追加
+}
+
+void mouseReleased() {
+  if (mouseX>=0 && mouseX <= 150 && mouseY >=0 && mouseY <= 150) {
+    board.updateResultArea(game.getJankenResult("Gu"));
+  } else if (mouseX>150 && mouseX <= 300 && mouseY >=0 && mouseY <= 150) {
+    board.updateResultArea(game.getJankenResult("Choki"));
+  } else if (mouseX>300 && mouseX <= 450 && mouseY >=0 && mouseY <= 150) {
+    board.updateResultArea(game.getJankenResult("Pa"));
+  }
 }
